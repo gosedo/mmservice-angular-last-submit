@@ -1,0 +1,102 @@
+<div class="row justify-content-start">
+    <div class="col-8 ">
+        <h2 >Task Detail</h2>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-2 ">
+        <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="onEditTask()">
+            Edit Task
+        </button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="onBackToIssuesList()">
+            Back
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Issue Type</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{issueType}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Unit Code</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{unitCode}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Task Created On</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{createdOnDate}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Task Completed on</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{closedOnDate}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Task Created By</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{taskCreatedBy}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Last updated By</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{taskUpdatedBy}}</small></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Tech Team</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{teamAssigned}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Task Status</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{taskStatus}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Task Description</small></span>
+    </div>
+    <div class="col-6">
+        <p><small class="text-muted">{{taskDescr}}</small></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 ">
+        <button type="button" class="btn btn-secondary btn-sm btn-block mt-2" (click)="onDeleteTask()" [disabled]="!isDeleteAllowed">
+            Delete Task
+        </button>
+    </div>
+   
+</div>

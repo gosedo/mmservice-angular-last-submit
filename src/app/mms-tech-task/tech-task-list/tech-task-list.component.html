@@ -1,0 +1,40 @@
+
+
+<table class="table table-sm table-hover mb-0 mt-5 table-responsive ">
+    <thead>
+        <tr class="align-self-center">
+            <th>Issue Type</th>
+            <th>Unit Code</th>
+            <th>Task Id</th>
+            <th>Task Created On</th>
+            <th>Team Assigned</th>
+            <th>Task Status</th>
+            <th>Task Completed On</th>
+            <th>Task Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let techTaskEl of listOfDetailVM; let i = index">
+            <td>{{ techTaskEl.issueType }}</td>
+            <td>{{ techTaskEl.unitCode }}</td>
+            <td>{{ techTaskEl.techTaskId }}</td>
+            <td>{{ techTaskEl.taskCreadtedOn  | date:'short' }}</td>
+            <td>{{ techTaskEl.techTeamAssigned }}</td>
+            <td>{{ techTaskEl.techTaskStatus }}</td>
+            <td>{{ techTaskEl.techTaskCompletedOn }}</td>
+            <td>{{ techTaskEl.techTaskDescr }}</td>
+            <td>
+                <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                    <a  style="cursor: pointer;"
+                        [routerLink]="['/task/'+techTaskEl.techTaskId]"
+                        routerLinkActive="active" title="Detial" class="btn btn-secondary px-2 text-default"><i class="bx bx-pencil font-size-18">Detail</i></a>
+                </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    

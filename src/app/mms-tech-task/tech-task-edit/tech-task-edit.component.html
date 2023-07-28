@@ -1,0 +1,71 @@
+<div class="row justify-content-start">
+    <div class="col-3 offset-md-2 ">
+        <h2 >Update Task</h2>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-12">
+        <form [formGroup]="techTaskEditForm">
+            <div class="form-group row">
+                <label for="unitCode" class="col-sm-2 input-sm col-form-label text-right">Unit Code</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="unitCode" id="unitCode"  readonly>
+                </div>
+            </div>
+            
+            <div class="row form-group">
+                <label for="techTaskStatusesCtrl" class="col-sm-2 input-sm col-form-label text-sm-right" >Task Status</label>
+                <div class="col-sm-4 ">
+                    <select class="form-control form-control-sm" formControlName="techTaskStatusesCtrl"  id="techTaskStatusesCtrl" (change) = "onSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let techTaskStatus of techTaskStatuses; let i = index"  [value]="techTaskStatus.taskStatusId">{{techTaskStatus.taskStatusDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.techTaskStatusesCtrl.touched) && (f.techTaskStatusesCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.techTaskStatusesCtrl.errors.required">Status is Required</span>                   
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="techTaskTeamCtrl" class="col-sm-2 input-sm col-form-label text-sm-right" >Tech Team</label>
+                <div class="col-sm-4 ">
+                    <select class="form-control form-control-sm" formControlName="techTaskTeamCtrl"  id="techTaskTeamCtrl" (change) = "onSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let techTeam of techTaskTeams; let i = index"  [value]="techTeam.techTeamId">{{techTeam.techTeamDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.techTaskTeamCtrl.touched) && (f.techTaskTeamCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.techTaskTeamCtrl.errors.required">Team is Required</span>                   
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="techTaskDescr" class="col-sm-2 input-sm col-form-label text-sm-right">Task Description</label>
+                <div class="col-sm-4 ">
+                <textarea rows="5" maxlength="240" class="form-control form-control-sm" 
+                        formControlName="techTaskDescr"  id="techTaskDescr"  
+                        placeholder="please write a brief statement about the issue" readonly></textarea>
+                </div>
+            </div>
+            <!-- <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 input-sm col-form-label text-right">issueStatus</label>
+                <div class="col-sm-4 ">
+                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
+                </div>
+            </div> -->
+           <div class="row">
+                <div class="col-md-2 offset-sm-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="updateTechtask()" [disabled]="!techTaskEditForm.valid" >Submit </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="onBackToIssuesList()">
+                        Back
+                    </button>
+                </div>
+           </div>
+           
+        </form>
+    </div>
+</div>
+

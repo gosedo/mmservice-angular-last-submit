@@ -1,0 +1,46 @@
+<div class="row justify-content-start">
+    <div class="col-8 ">
+        <h2 >User Activation</h2>
+    </div>
+</div>
+<hr>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form [formGroup]="newUserVerifyForm" >
+            <div class="form-group row">
+                <label for="userPassword" class="col-sm-2 input-sm col-form-label text-right">New Password</label>
+                <div class="col-sm-4 ">
+                    <input type="password" class="form-control form-control-sm" formControlName="userPassword" id="userPassword" >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userPassword.touched) && (f.userPassword.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userPassword.errors.required">Password is Required</span>  
+                        <span *ngIf = "f.userPassword.errors.minlength">   
+                            MinLength Error   
+                    </span>                     
+                </div> 
+            </div>
+            <div class="form-group row">
+                <label for="userPasswordConfirm" class="col-sm-2 input-sm col-form-label text-right">Confirm Password</label>
+                <div class="col-sm-4 ">
+                    <input type="password" class="form-control form-control-sm" formControlName="userPasswordConfirm" id="userPasswordConfirm" >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userPasswordConfirm.touched) && (f.userPasswordConfirm.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userPasswordConfirm.errors.required">Confirm password is Required</span>  
+                        <span *ngIf = "f.userPasswordConfirm.errors.minlength">   
+                            MinLength Error   
+                    </span>                     
+                </div> 
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 offset-sm-2 mr-1">
+                    <button class="btn btn-primary btn-sm btn-block" (click)="setNewPassword()" [disabled]="!newUserVerifyForm.valid">Submit </button>
+                </div>
+                
+            </div>
+           
+        </form>
+    </div>
+</div>

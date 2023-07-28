@@ -1,0 +1,16 @@
+<div class="row ml-2">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewIssue()" [disabled]="!isAddNewIssueAllowed">Add New Issue</button>
+  </div>
+</div>
+<hr>
+<!-- <div class="row" *ngIf="1">
+  <div class="col-12">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-12">
+    <app-issue-list></app-issue-list> 
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.row-custom_color.emails{
+    background-color: #ecf9eb;
+    border-top-left-radius:  15px;
+    border-top-right-radius: 15px;
+    padding-top: 0.8rem;
+}
+.row-custom_color.names{
+    background-color: #ecf9eb;
+    border-bottom-left-radius:  15px;
+    border-bottom-right-radius: 15px;
+    padding-bottom: .8rem;
+}
+

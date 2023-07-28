@@ -1,0 +1,134 @@
+<div class="row justify-content-start">
+    <div class="col-8 ">
+        <h2 >Register New User</h2>
+    </div>
+</div>
+<hr>
+<div class="row justify-content-start ">
+    <div class="col-8 ">
+        <form [formGroup]="newUserForm" style="border: 2px slategrey ; padding: 20px 0">
+            <div class="row form-group justify-content-start">
+                <label for="userRolesCtrl" class="col-md-2 input-sm col-form-label text-md-right" >User Type</label>
+                <div class="col-md-4 ">
+                    <select class="form-control form-control-sm" formControlName="userRolesCtrl"  id="userRolesCtrl" (change) = "onRoleSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let userRole of listOfUserRoles; let i = index"  [value]="userRole.usrRoleId">{{userRole.usrRoleDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userRolesCtrl.touched) && (f.userRolesCtrl.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userRolesCtrl.errors.required">User Type is Required</span>  
+                                            
+                </div>
+            </div>
+            <div class="row form-group justify-content-start" *ngIf="selectedRole == 1">
+                <label for="propertyUnitsCtrl" class="col-md-2 input-sm col-form-label text-md-right" >Property Units</label>
+                <div class="col-md-4 ">
+                    <select class="form-control form-control-sm" formControlName="propertyUnitsCtrl"  id="propertyUnitsCtrl" (change) = "onUnitSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let propUnitOpt of listOfPropUnits; let i = index"  [value]="propUnitOpt.unitId">{{propUnitOpt.unitCode}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.propertyUnitsCtrl.touched) && (f.propertyUnitsCtrl.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.propertyUnitsCtrl.errors.required">Unit is Required</span>  
+                                            
+                </div>
+            </div>
+            <div class="row form-group justify-content-start" *ngIf="selectedRole == 2">
+                <label for="techTeamsCtrl" class="col-md-2 input-sm col-form-label text-md-right" >Team</label>
+                <div class="col-md-4 ">
+                    <select class="form-control form-control-sm" formControlName="techTeamsCtrl"  id="techTeamsCtrl" (change) = "onTeamSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let techTeamOpt of listOfTeams; let i = index"  [value]="techTeamOpt.techTeamId">{{techTeamOpt.techTeamDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.techTeamsCtrl.touched) && (f.techTeamsCtrl.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.techTeamsCtrl.errors.required">Team is Required</span>  
+                                            
+                </div>
+            </div>
+            <div class="form-group row justify-content-start">
+                <label for="userFirstname" class="col-md-2 input-sm col-form-label text-md-right">First Name</label>
+                <div class="col-md-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userFirstname" id="userFirstname" >
+                </div>
+                <!-- <div *ngIf="f.userFirstname.touched && f.userFirstname.invalid" class="alert alert-danger">
+                    <div *ngIf="f.userFirstname.errors.required">Password is required.</div>
+                </div> -->
+        
+                <div class="alert alert-danger" *ngIf = "(f.userFirstname.touched) && (f.userFirstname.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userFirstname.errors.required">First Name is Required</span>  
+                        <span *ngIf = "f.userFirstname.errors.minlength">   
+                            MinLength Error   
+                    </span>                     
+                </div> 
+            </div>
+            <div class="form-group row justify-content-start">
+                <label for="userLastname" class="col-md-2 input-sm col-form-label text-md-right">Last Name</label>
+                <div class="col-md-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userLastname" id="userLastname" >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userLastname.touched) && (f.userLastname.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userLastname.errors.required">Last Name is Required</span>  
+                        <span *ngIf = "f.userLastname.errors.minlength">   
+                            MinLength Error   
+                    </span>                     
+                </div>
+            </div>
+            <div class="form-group row justify-content-start">
+                <label for="userEmail" class="col-md-2 input-sm col-form-label text-md-right">Email</label>
+                <div class="col-md-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userEmail" id="userEmail"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userEmail.touched) && (f.userEmail.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userEmail.errors.required">Email is Required</span>  
+                        <span *ngIf = "f.userEmail.errors.email">   
+                            Enter email ttttt@yyyy.com   
+                    </span>                     
+                </div>
+            </div>
+            <div class="form-group row justify-content-start">
+                <label for="userPassword" class="col-md-2 input-sm col-form-label text-md-right">Password</label>
+                <div class="col-md-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userPassword" id="userPassword"  >
+                </div>
+        
+                <div class="alert alert-danger" *ngIf = "(f.userPassword.touched) && (f.userPassword.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userPassword.errors.required">Password is Required</span>  
+                    <span *ngIf="f.userPassword.errors.minlength">At least 6 char</span>
+                                            
+                </div>
+            </div>
+            <div class="form-group row justify-content-start">
+                <label for="userPhone" class="col-md-2 input-sm col-form-label text-md-right">Phone</label>
+                <div class="col-md-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userPhone" id="userPhone"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userPhone.touched) && (f.userPhone.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.userPhone.errors.required">Phone is Required</span>  
+                    <span *ngIf="f.userPhone.errors.pattern">Phone should be ddd-ddd-dddd</span>  
+                                            
+                </div>
+            </div>
+            
+            <div class="row justify-content-start">
+                <div class="col-md-2 offset-md-2 mr-1">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="createUser()" [disabled]="!newUserForm.valid" >Submit </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="backToIssue()" >Back </button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+  

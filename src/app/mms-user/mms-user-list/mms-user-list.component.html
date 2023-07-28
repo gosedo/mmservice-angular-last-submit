@@ -1,0 +1,91 @@
+<form [formGroup]="userSearchForm">
+    <div class="form-row row-custom_color emails mt-0 mb-0">
+      
+      <div class="col-md-3 mt-0 mb-1">
+        <input type="input" class="form-control form-control-sm input-xs " formControlName="searchUserEmail" id="searchUserEmail" placeholder="Email" >
+      </div>
+    </div>
+    <div class="form-row row-custom_color names mt-0 mb-4">
+          
+          <div class="col-md-3 mt-0 mb-0">
+            <input type="input"  class="form-control form-control-sm " formControlName="searchFirstname" id="searchFirstname" placeholder="First Name" >
+            
+          </div>
+
+          <div class="col-md-3 m-0">
+              <input type="input" class="form-control form-control-sm " formControlName="searchLastname" id="searchLastname"  placeholder="Last Name">
+          </div>
+
+          <div class="col-md-2 m-0">
+            <button class="btn btn-secondary btn-sm btn-block "  (click)="searchByFilters()" >
+              <i class="fa fa-search" aria-hidden="true"></i>
+              Search </button>
+          </div>
+    </div>
+    
+  </form>
+
+  <nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <button type="button" class="btn btn-secondary btn-sm" disabled >
+                Page <span class="badge text-bg-secondary"> {{currentPage >= 0 && totalPages > 0 ? currentPage + 1 : "" }} </span>  of {{ totalPages  }}
+            </button>
+        </li>
+        <li class="page-item ">
+          <button type="button" class="btn btn-secondary btn-sm" (click)="prevPage()" [disabled] ="isFirstPage">
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            Previous        
+          </button>
+            
+        </li>
+        <li class="page-item">
+          <button type="button" class="btn btn-secondary btn-sm" (click)="nextPage()" [disabled]="isLastPage">
+            Next        
+            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+          </button>
+            
+        </li>
+    </ul>
+  </nav>
+
+
+  
+<!-- <div class="row">
+  <div class="col-12"> -->
+    <table class="table table-sm table-hover mb-0 mt-2 table-responsive ">
+        <thead>
+            <tr class="align-self-center">
+                <th>Id</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status</th>
+                <th>User Type</th>
+                <th>Activated</th>
+                
+            </tr>
+        </thead>
+    
+        
+        <tbody>
+            <tr *ngFor="let userEl of listOfDetailVM; let i = index">
+                  <td>{{ userEl.userId }}</td>
+                  <td>{{ userEl.userEmail }}</td>
+                  <td>{{ userEl.userFirstname }}</td>
+                  <td>{{ userEl.userLastname  }}</td>
+                  <td>{{ userEl.userStatus }}</td>
+                  <td>{{ userEl.userType }}</td>
+                  <td>{{ userEl.isactivated }}</td>
+                  <td>
+                      <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a  style="cursor: pointer;"
+                                [routerLink]="[userEl.userId]"
+                                routerLinkActive="active" title="Detial" class="btn btn-secondary btn-sm px-2 text-default"><i class="bx bx-pencil font-size-18">Detail</i></a>
+                        </li>
+                      </ul>
+                  </td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,88 @@
+<div class="row justify-content-start">
+    <div class="col-8 ">
+        <h2 >User Detail</h2>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-2">
+        <button type="button" class="btn btn-success mr-3 btn-sm btn-block" (click)="onEditUser()" >
+                Update User
+        </button>
+    </div>
+    
+</div>
+
+    
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">User Id</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{userIdVM}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Email</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{userEmailVM}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">First Name</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{userFirstnameVM}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Last Name</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{userLastnameVM }}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">User Status</small></span>
+    </div>
+    <div class="col-6">
+        <p><small class="text-muted">{{userStatusVM}}</small></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">user Role</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{userRolesVM}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Activated</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{isVerifiedVM}}</small></span>
+    </div>
+</div>
+<div class="row mt-4">
+    
+    <div class="col-2">
+        <button type="button" class="btn btn-secondary mr-3 btn-sm btn-block" (click)="onBackToUsersList()">
+            Back 
+        </button>
+    </div>
+</div>
+
+<div class="row" *ngIf="1">
+  
+    <div class="col-12">
+      
+      <router-outlet></router-outlet>
+    </div>
+</div>

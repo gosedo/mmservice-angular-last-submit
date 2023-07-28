@@ -1,0 +1,107 @@
+<div class="row justify-content-start">
+    <div class="col-8 ">
+        <h2 >Issue Detail</h2>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-2">
+        <button type="button" class="btn btn-success mr-3 btn-sm btn-block" (click)="onEditIssue()" [disabled]="!isEditAllowed">
+                Update Issue
+        </button>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Issue Id</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{issueId}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Issue Type</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{issueType}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Unit Code</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{unitCode}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Requested On</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{dateRequested | date:'short'}}</small></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Issue Description</small></span>
+    </div>
+    <div class="col-6">
+        <p><small class="text-muted">{{issueDescr}}</small></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <span><small class="text-muted">Issue Status</small></span>
+    </div>
+    <div class="col-6">
+        <span><small class="text-muted">{{issueStatus}}</small></span>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-2">
+        <button type="button" class="btn btn-secondary mr-3 btn-sm btn-block" (click)="onShowTasks()" [disabled]="!isShowTaskAllowed">
+            Show Tasks
+        </button>
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-secondary mr-3 btn-sm btn-block" (click)="onBackToIssuesList()">
+            Back 
+        </button>
+    </div>
+</div>
+
+<div class="row" *ngIf="1">
+  
+    <div class="col-12">
+      
+      <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+<!-- <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-2">
+            <span><small class="text-muted">Issue Type</small></span>
+        </div>
+        
+        <div class="col-md-8">
+            <p class="card-text"><small class="text-muted"> {{issueType}} </small></p>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div> -->
+

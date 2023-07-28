@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
+/* Used Google Fonts */
+/* 
+https://codepen.io/maheshambure21/pen/MWWgyyG
+font-family: 'Lobster', cursive;
+'Mansalva', cursive;
+*/
+
+
+.active{
+    background-color: rgb(191, 201, 190);
+    border-radius: 5px;
+}
+h1, h2, h3, h4, h5, h6, p{
+    margin:0px;
+    padding:0px;
+  }
+  .logo-container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:inline-block;
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../../assets/images/apartments.jpg);
+  }
+  .logo-container div {
+      width: 100%;
+      border-radius: 10px;
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .logo-container a{
+    text-decoration:none !important;
+    display: inline-block;
+  }
+
+.logo-holder{
+  text-align:center;
+}
+
+
+/* Logo */
+.logo h3 {
+    color: #348034;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 0.65;
+    font-family: 'Lobster', cursive;
+    margin: 5% 0;
+}
+.logo p {
+    font-size: 1rem;
+    margin-left: 3rem;
+    color: #348034;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: italic;
+    font-family: 'Mansalva', cursive;
+}
+
+@media only screen and (max-width:736px) {
+ 
+  .logo p {
+      margin-top: 0.5rem;
+  }
+  
+}
+
+img {
+    display: block; 
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-brand > span{
+  font-weight:bolder;
+  font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-brand {
+  color: #edf1f4;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #141212;
+}
+
+

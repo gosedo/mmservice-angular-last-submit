@@ -1,0 +1,101 @@
+
+  <form [formGroup]="issueSearchForm">
+    <div class="form-row row-custom_color issueid mt-0 mb-0">
+      <label  class="col-md-2 input-sm col-form-label text-md-right ml-1">Issue Id</label>
+      <div class="col-md-3 mt-0 mb-0">
+        <input type="number" class="form-control form-control-sm input-xs " formControlName="searchIssueId" id="searchIssueId"  >
+      </div>
+    </div>
+    <div class="form-row row-custom_color dates mt-0 mb-4">
+          <label  class="col-md-2 input-sm col-form-label text-md-right ml-1">Created between</label>
+          
+          <!-- <div class="col-md-3">
+            <button class="btn btn-secondary btn-sm btn-block mb-2"  disabled > </button>
+          </div> -->
+          <div class="col-md-3 mt-0 mb-0">
+            <input type="datetime-local" date class="form-control form-control-sm input-xs " formControlName="startDate" id="startDate"  >
+            
+          </div>
+          
+          <!-- <span class="mt-2 mb-2" id="basic-addon1">and</span> -->
+          
+          <!-- <label  class="col-md-1 input-xs col-form-label text-left w-25">and</label> -->
+          
+          <div class="col-md-3 m-0">
+              <input type="datetime-local" class="form-control form-control-sm input-xs" formControlName="endDate" id="endDate"  >
+          </div>
+
+          <div class="col-md-2 m-0">
+            <button class="btn btn-secondary btn-sm btn-block "  (click)="searchByCreatedDate()" >
+              <i class="fa fa-search" aria-hidden="true"></i>
+              Search </button>
+          </div>
+    </div>
+    
+  </form>
+  
+<nav aria-label="...">
+  <ul class="pagination">
+      <li class="page-item">
+          <button type="button" class="btn btn-secondary btn-sm" disabled >
+              Page <span class="badge text-bg-secondary"> {{currentPage >= 0 && totalPages > 0 ? currentPage + 1 : "" }} </span>  of {{ totalPages  }}
+          </button>
+      </li>
+      <li class="page-item ">
+        <button type="button" class="btn btn-secondary btn-sm" (click)="prevPage()" [disabled] ="isFirstPage">
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          Previous        
+        </button>
+          
+      </li>
+      <li class="page-item">
+        <button type="button" class="btn btn-secondary btn-sm" (click)="nextPage()" [disabled]="isLastPage">
+          Next        
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+        </button>
+          
+      </li>
+  </ul>
+</nav>
+
+<!-- <div class="row">
+  <div class="col-12"> -->
+    <table class="table table-sm table-hover mb-0 table-responsive">
+      <thead>
+          <tr class="align-self-center">
+              <th>Issue Id</th>
+              <th>Issue Type</th>
+              <th>Unit Code</th>
+              <th>Date Of Request</th>
+              <th>Status</th>
+              <th>Completed On</th>
+              <th>Description</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let issueEl of listOfDetailVM; let i = index">
+                <td>{{ issueEl.issueId }}</td>
+                <td>{{ issueEl.issueType }}</td>
+                <td>{{ issueEl.unitCode }}</td>
+                <td>{{ issueEl.dateRequested | date:'short' }}</td>
+                <td>{{ issueEl.issueStatus }}</td>
+                <td>{{ issueEl.completedOn | date:'short'}}</td>
+                <td>{{ issueEl.issueDescr | slice:0:50 }}</td>
+                <td>
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                          <a  style="cursor: pointer;"
+                              [routerLink]="[issueEl.issueId]"
+                              routerLinkActive="active" title="Detial" class="btn btn-secondary  btn-sm px-2 text-default"><i class="bx bx-pencil font-size-18">Detail</i></a>
+                      </li>
+                    </ul>
+                </td>
+          </tr>
+      </tbody>
+  </table>
+  <!-- </div>
+</div> -->
+  
+
+

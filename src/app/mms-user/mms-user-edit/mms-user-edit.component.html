@@ -1,0 +1,105 @@
+<div class="row justify-content-start">
+    <div class="col-3 offset-md-2 ">
+        <h2 >Update User</h2>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form [formGroup]="userEditForm">
+            
+            <div class="form-group row">
+                <label for="userIdCtrl" class="col-sm-2 input-sm col-form-label text-right">User Id</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userIdCtrl" id="userIdCtrl"  readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="userFirstnameVMCtrl" class="col-sm-2 input-sm col-form-label text-right">First Name</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userFirstnameVMCtrl" id="userFirstnameVMCtrl"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userFirstnameVMCtrl.touched) && (f.userFirstnameVMCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.userFirstnameVMCtrl.errors.required">Email is Required</span>   
+                                      
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="userLastnameVMCtrl" class="col-sm-2 input-sm col-form-label text-right">Last Name</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userLastnameVMCtrl" id="userLastnameVMCtrl"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userLastnameVMCtrl.touched) && (f.userLastnameVMCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.userLastnameVMCtrl.errors.required">Email is Required</span>   
+                                      
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="userPhoneVMCtrl" class="col-sm-2 input-sm col-form-label text-right">Phone </label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userPhoneVMCtrl" id="userPhoneVMCtrl"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userPhoneVMCtrl.touched) && (f.userPhoneVMCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.userPhoneVMCtrl.errors.required">Email is Required</span>   
+                                      
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="userEmailVMCtrl" class="col-sm-2 input-sm col-form-label text-right">Email</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="userEmailVMCtrl" id="userEmailVMCtrl"  >
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userEmailVMCtrl.touched) && (f.userEmailVMCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.userEmailVMCtrl.errors.required">Email is Required</span>   
+                                      
+                </div>
+            </div>
+          
+            <div class="form-group row">
+                <label for="isNewPasswordVMCtrl" class="col-sm-2 input-sm col-form-label text-right">
+                   Change Password</label>
+                <div class="col-sm-4 ">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <input type="checkbox" (click)= "enableChangePassword()" formControlName="isNewPasswordVMCtrl" id="isNewPasswordVMCtrl">
+                          </div>
+                        </div>
+                        <input type="input" class="form-control form-control-sm" formControlName="userPasswordVMCtrl" id="userPasswordVMCtrl" [disabled] ="!isChangePassword" >
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row form-group">
+                <label for="userStatusVMCtrl" class="col-sm-2 input-sm col-form-label text-sm-right" >User Status</label>
+                <div class="col-sm-4 ">
+                    <select class="form-control form-control-sm" formControlName="userStatusVMCtrl"  id="userStatusVMCtrl" (change) = "onSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let statusP of userStatuses; let i = index"  [value]="statusP.userStatusId">{{statusP.userStatusDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.userStatusVMCtrl.touched) && (f.userStatusVMCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.userStatusVMCtrl.errors.required">User Status is Required</span>   
+                                      
+                </div>
+            </div>
+           
+           <div class="row">
+                <div class="col-md-2 offset-md-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="updateUser()"  >Submit </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="onBackToUser()" > Back </button>
+                </div>
+           </div>
+          
+        </form>
+    </div>
+</div>

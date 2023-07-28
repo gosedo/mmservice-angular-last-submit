@@ -1,0 +1,82 @@
+<div class="row justify-content-start">
+    <div class="col-3 offset-md-2 ">
+        <h2 >Update Issue</h2>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form [formGroup]="issueEditForm">
+            <div class="row mb-4">
+                <div class="col-md-2 offset-md-2">
+                    <button class="btn btn-success btn-sm btn-block" (click)="addTask()" >Add New Task </button>
+                </div>
+                
+           </div>
+           <div class="form-group row">
+                <label for="issueId" class="col-sm-2 input-sm col-form-label text-right">Issue Id</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="issueId" id="issueId"  readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="unitCode" class="col-sm-2 input-sm col-form-label text-right">Unit Code</label>
+                <div class="col-sm-4 ">
+                    <input type="input" class="form-control form-control-sm" formControlName="unitCode" id="unitCode"  readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="fName" class="col-sm-2 input-sm col-form-label text-sm-right" >Issue Type</label>
+                <div class="col-sm-4 ">
+                    <select class="form-control form-control-sm" formControlName="issueTypesCtrl"  id="issueTypesCtrl" (change) = "onSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let issue of issueTypes; let i = index"  [value]="issue.issueTypeId">{{issue.issueTypeDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.issueTypesCtrl.touched) && (f.issueTypesCtrl.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.issueTypesCtrl.errors.required">Issue Type is Required</span>   
+                                      
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="fName" class="col-sm-2 input-sm col-form-label text-sm-right" >Issue Status</label>
+                <div class="col-sm-4 ">
+                    <select class="form-control form-control-sm" formControlName="issueStatusesCtrl"  id="issueStatusesCtrl" (change) = "onSelect($event.target.options)">
+                        <option value="0">Select one</option>
+                        <option *ngFor = "let issueStatus of issueStatuses; let i = index"  [value]="issueStatus.issueStatusId">{{issueStatus.issueStatusDescr}}</option>
+                    </select>
+                </div>
+                <div class="alert alert-danger" *ngIf = "(f.issueStatusesCtrl.touched) && (f.issueStatusesCtrl.invalid)"   
+                    style="margin-top: 5px;">  
+                    <span *ngIf="f.issueStatusesCtrl.errors.required">Status is Required</span>   
+                                
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 input-sm col-form-label text-sm-right">Description</label>
+                <div class="col-sm-4 ">
+                <textarea rows="5" maxlength="240" class="form-control form-control-sm" 
+                        formControlName="issueDescr"  id="issueDescr"  
+                        placeholder="please write a brief statement about the issue" readonly></textarea>
+                </div>
+            </div>
+            <!-- <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 input-sm col-form-label text-right">issueStatus</label>
+                <div class="col-sm-4 ">
+                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
+                </div>
+            </div> -->
+           <div class="row">
+                <div class="col-md-2 offset-md-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="updateIssue()"  [disabled]="!issueEditForm.valid" >Submit </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="onBackToIssue()" > Back </button>
+                </div>
+           </div>
+          
+        </form>
+    </div>
+</div>

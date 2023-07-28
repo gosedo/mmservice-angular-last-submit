@@ -1,0 +1,92 @@
+<div class="row justify-content-start">
+    <div class="col-3 offset-md-2 ">
+        <h2 >New Task</h2>
+    </div>
+</div>
+<hr>
+
+<!-- private String taskDescr;
+	private int taskForIssueId;
+	private int teamAssignedId;
+	private int taskCreatedByUserId; -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form [formGroup]="newTechTaskForm">
+                <div class="form-group row">
+                    <label for="taskForIssueId" class="col-sm-2 input-sm col-form-label text-right">Issue Id</label>
+                    <div class="col-sm-4 ">
+                        <input type="input" class="form-control form-control-sm" formControlName="taskForIssueId" id="taskForIssueId"  readonly>
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <label for="issueUnit" class="col-sm-2 input-sm col-form-label text-right">Issue Unit Code</label>
+                    <div class="col-sm-4 ">
+                        <input type="input" class="form-control form-control-sm" formControlName="issueUnit" id="issueUnit"  readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="issueType" class="col-sm-2 input-sm col-form-label text-right">Issue Type</label>
+                    <div class="col-sm-4 ">
+                        <input type="input" class="form-control form-control-sm" formControlName="issueType" id="issueType"  readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="issueDescr" class="col-sm-2 input-sm col-form-label text-sm-right">Description</label>
+                    <div class="col-sm-4 ">
+                    <textarea rows="5" maxlength="240" class="form-control form-control-sm" 
+                            formControlName="issueDescr"  id="issueDescr"  
+                             readonly></textarea>
+                    </div>
+                    
+                </div>
+                <div class="row form-group">
+                    <label for="teamAssigned" class="col-sm-2 input-sm col-form-label text-sm-right" >Team Assigned</label>
+                    <div class="col-sm-4 ">
+                        <select class="form-control form-control-sm" formControlName="teamAssigned"  id="teamAssigned" (change) = "onSelect($event.target.options)">
+                            <option value="0">Select one</option>
+                            <option *ngFor = "let techTeam of listOfTechTeams; let i = index"  [value]="techTeam.techTeamId">{{techTeam.techTeamDescr}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="alert alert-danger" *ngIf = "(f.teamAssigned.touched) && (f.teamAssigned.invalid)"   
+                            style="margin-top: 5px;">  
+                        <span *ngIf="f.teamAssigned.errors.required">Team is Required</span>                   
+                    </div> 
+                </div>
+                <div class="form-group row">
+                    <label for="techTaskDesr" class="col-sm-2 input-sm col-form-label text-sm-right">Description</label>
+                    <div class="col-sm-4 ">
+                    <textarea rows="5" maxlength="240" class="form-control form-control-sm" 
+                            formControlName="techTaskDesr"  id="techTaskDesr"  
+                            placeholder="please write a brief statement about the task"></textarea>
+                    </div>
+                    <div class="alert alert-danger" *ngIf = "(f.techTaskDesr.touched) && (f.techTaskDesr.invalid)"   
+                            style="margin-top: 5px;">  
+                          
+                        <span *ngIf="f.techTaskDesr.errors.required">Description is Required</span>  
+                        <span *ngIf = "f.techTaskDesr.errors.minlength">   
+                            MinLength Error   
+                    </span>                      
+                    </div> 
+                </div>
+                <!-- <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 input-sm col-form-label text-right">issueStatus</label>
+                    <div class="col-sm-4 ">
+                    <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-2 offset-sm-2 mr-1">
+                        <button class="btn btn-secondary btn-sm btn-block" (click)="addTechTask()" [disabled]="!newTechTaskForm.valid">Submit </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-secondary btn-sm btn-block" (click)="backToIssue()" >Back </button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        
+    </div>

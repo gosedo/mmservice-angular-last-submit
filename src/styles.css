@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar-dark {
+ 
+    background-color: #48b670;
+   
+    border-color: #426645;
+   
+  }
+
+  .navbar-dark .navbar-brand {
+   
+    color: #d7e2e9;
+   
+  }
+   
+  .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+   
+    color: #e5dbdb;
+   
+  }
+  
+  .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: #5d9766 !important;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+  background-color: rgb(74, 72, 72)!important;
+}
+
+.active{
+  background-color: #686c69;
+  border-radius: 5px;
+}
+
+body {
+
+  font-style:normal;
+  font-family:Arial, Helvetica, sans-serif;
+}
